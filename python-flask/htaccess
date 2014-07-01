@@ -1,0 +1,10 @@
+DirectoryIndex index.fcgi index.html
+AddHandler fcgid-script .fcgi
+Options +ExecCGI
+
+RewriteEngine On
+RewriteRule ^$ index.fcgi/ [QSA,L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.fcgi/$1 [QSA,L]
+
